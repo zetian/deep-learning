@@ -1,5 +1,6 @@
 import numpy as np
-
+import pandas as pd
+import matplotlib.pyplot as plt
 
 class NeuralNetwork(object):
     def __init__(self, input_nodes, hidden_nodes, output_nodes, learning_rate):
@@ -20,7 +21,7 @@ class NeuralNetwork(object):
         #
         # Note: in Python, you can define a function with a lambda expression,
         # as shown below.
-        self.activation_function = lambda x : 0  # Replace 0 with your sigmoid calculation.
+        self.activation_function = lambda x : 1 / (1 + np.exp(-x))  # Replace 0 with your sigmoid calculation.
         
         ### If the lambda code above is not something you're familiar with,
         # You can uncomment out the following three lines and put your 
@@ -144,3 +145,22 @@ iterations = 100
 learning_rate = 0.1
 hidden_nodes = 2
 output_nodes = 1
+
+data_path = 'Bike-Sharing-Dataset/hour.csv'
+
+rides = pd.read_csv(data_path)
+rides.head()
+# print(rides.head())
+rides[:24*10].plot(x='dteday', y='cnt')
+plt.show()
+
+dummy_fields = ['season', 'weathersit', 'mnth', 'hr', 'weekday']
+for each in dummy_fields:
+    dummies = pd.get_dummies(rides[each], prefix=each, drop_first=False)
+    rides = pd.concat([rides, dummies], axis=1)
+
+fields_to_drop = ['instant', 'dteday', 'season', 'weathersit', 
+                  'weekday', 'atemp', 'mnth', 'workingday', 'hr']
+data = rides.drop(fields_to_drop, axis=1)
+data.head()
+# print(data.head())
