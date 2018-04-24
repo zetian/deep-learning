@@ -1,6 +1,6 @@
 import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
+# import pandas as pd
+# import matplotlib.pyplot as plt
 
 class NeuralNetwork(object):
     def __init__(self, input_nodes, hidden_nodes, output_nodes, learning_rate):
@@ -120,9 +120,9 @@ class NeuralNetwork(object):
         '''
         self.weights_hidden_to_output += self.lr*delta_weights_h_o/n_records # update hidden-to-output weights with gradient descent step
         self.weights_input_to_hidden += self.lr*delta_weights_i_h/n_records # update input-to-hidden weights with gradient descent step
-        # print("n_records: ", n_records)
-        # print("self.weights_hidden_to_output: ", self.weights_hidden_to_output)
-        # print("self.weights_input_to_hidden: ", self.weights_input_to_hidden)
+        
+        # self.weights_hidden_to_output += self.lr*delta_weights_h_o # update hidden-to-output weights with gradient descent step
+        # self.weights_input_to_hidden += self.lr*delta_weights_i_h
 
 
     def run(self, features):
@@ -152,6 +152,6 @@ class NeuralNetwork(object):
 ##########################################################
 iterations = 2000
 learning_rate = 0.3
-hidden_nodes = 4
+hidden_nodes = 10
 output_nodes = 1
 
