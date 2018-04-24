@@ -120,9 +120,9 @@ class NeuralNetwork(object):
         '''
         self.weights_hidden_to_output += self.lr*delta_weights_h_o/n_records # update hidden-to-output weights with gradient descent step
         self.weights_input_to_hidden += self.lr*delta_weights_i_h/n_records # update input-to-hidden weights with gradient descent step
-        # print("n_records: ", n_records)
-        # print("self.weights_hidden_to_output: ", self.weights_hidden_to_output)
-        # print("self.weights_input_to_hidden: ", self.weights_input_to_hidden)
+        
+        # self.weights_hidden_to_output += self.lr*delta_weights_h_o # update hidden-to-output weights with gradient descent step
+        # self.weights_input_to_hidden += self.lr*delta_weights_i_h
 
 
     def run(self, features):
