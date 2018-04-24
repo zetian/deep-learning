@@ -1,6 +1,6 @@
 import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
+# import pandas as pd
+# import matplotlib.pyplot as plt
 
 class NeuralNetwork(object):
     def __init__(self, input_nodes, hidden_nodes, output_nodes, learning_rate):
@@ -150,8 +150,8 @@ class NeuralNetwork(object):
 #########################################################
 # Set your hyperparameters here
 ##########################################################
-iterations = 2000
-learning_rate = 0.3
-hidden_nodes = 4
+iterations = 4000
+learning_rate = 0.7
+hidden_nodes = 10
 output_nodes = 1
 
